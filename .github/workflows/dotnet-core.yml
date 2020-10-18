@@ -23,9 +23,11 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: Init nuget
+      run: dotnet nuget add source https://nuget.pkg.github.com/conoscenza-no/index.json -n github -u conoscenza-no -p ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
+    - name: Pack
+      run: dotnet pack --configuration Release --version-suffix beta
     - name: Publish package
-      uses: brandedoutcast/publish-nuget@v2.5.2
-      with:
-          PROJECT_FILE_PATH: src/Conoscenza.Ddd/Conoscenza.Ddd.csproj
-          NUGET_SOURCE: https://nuget.pkg.github.com/conoscenza-no
-          NUGET_KEY: ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet nuget push "bin/Release/Conoscenza.Ddd.0.1.0.nupkg" --source "github"
+      
+      
