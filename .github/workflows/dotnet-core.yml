@@ -23,3 +23,9 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: Publish package
+      uses: brandedoutcast/publish-nuget@v2.5.2
+      with:
+          PROJECT_FILE_PATH: src/Conoscenza.Ddd/Conoscenza.Ddd.csproj
+          NUGET_SOURCE: https://nuget.pkg.github.com/conoscenza-no
+          NUGET_KEY: ${{ secrets.GITHUB_TOKEN }}
