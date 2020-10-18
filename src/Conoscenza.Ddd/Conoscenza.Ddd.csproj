@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>Conoscenza.Ddd</PackageId>
+    <Version>0.1.0</Version>
+    <Company>Conoscenza AS</Company>
+    <Copyright>Conoscenza AS</Copyright>
+    <AssemblyVersion>0.0.1.0</AssemblyVersion>
+    <FileVersion>0.0.1.0</FileVersion>
+    <PackageDescription>Conoscenza.Ddd</PackageDescription>
+    <RepositoryUrl>https://github.com/conoscenza-no/Conoscenza.Ddd</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
